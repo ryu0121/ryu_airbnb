@@ -16,7 +16,6 @@ class RoomsController < ApplicationController
      
       redirect_to listing_room_path(@room), notice: "Saved..."
     else
-      abort
       flash[:alert] = "Something went wrong"
       render :new
     end
