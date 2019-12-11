@@ -35,6 +35,7 @@ class RoomsController < ApplicationController
   end
 
   def photo_upload
+    @photos = @room.photos
   end
 
   def amenities
