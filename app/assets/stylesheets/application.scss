@@ -44,9 +44,19 @@
 
  .listing-form-group select {
      width: 90%;
+     height: 40px;
  }
 
  .save-room {
      width: 15%;
-     height: 40px;
+     height: 45px;
+ }
+
+ ul li {
+     list-style: none;
+ }
+
+ .list-style {
+    color: black;
+    text-decoration: none !important ;
  }
