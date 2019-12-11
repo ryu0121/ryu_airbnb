@@ -33,3 +33,20 @@
  .forget {
     float: right;
  }
+
+ .card-header.preview {
+     padding: 0;
+
+     img {
+         width: 100%;
+     }
+ }
+
+ .listing-form-group select {
+     width: 90%;
+ }
+
+ .save-room {
+     width: 15%;
+     height: 40px;
+ }
