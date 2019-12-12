@@ -25,10 +25,10 @@
                                 <% end %>
                             </div>
                             <div class="col-md-7">
-                                <%= room.listing_name %>
+                                <p class="listing-name"><%= room.listing_name %></p>
                             </div>
                             <div class="col-md-3">
-                                <%= link_to 'Update', room_path(room), method: :patch, class: "btn btn-primary update-room-btn" %>
+                                <%= link_to 'Update', listing_room_path(room), class: "btn btn-primary update-room-btn" %>
                             </div>
                         </div>
                     <% end %>
