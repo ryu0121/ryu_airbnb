@@ -1,2 +1,103 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<div class="container">
+    <%= image_tag @room.photos.first.image.url, class:"mt-2 mb-2", width:"100%" %>
+    <div class="row">
+        <div class="col-9 mt-2">
+            <div class="row">
+                <div class="col-8 mb-4">
+                    <h1><%= @room.listing_name %></h1>
+                    <p><%= @room.address %></p>
+                </div>
+                <div class="col-4 text-center mb-4">
+                    <%= image_tag avatar_url(@user), class: "rounded-circle avatar-medium" %>
+                    <p class="show-name mt-2"><%= @user.fullname %></p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-3">
+                    <i class="fas fa-home fa-ame"></i>
+                    <p>House</p>
+                </div>
+                <div class="col-3">
+                    <i class="fas fa-user-circle fa-ame"></i>
+                    <p><%= pluralize(@room.accommodate, "Guest") %></p>
+                </div>
+                <div class="col-3">
+                    <i class="fas fa-bath fa-ame"></i>
+                    <p><%= pluralize(@room.bathroom, "Bathroom") %></p>
+                </div>
+                <div class="col-3">
+                    <i class="fas fa-bed fa-ame"></i>
+                    <p><%= pluralize(@room.bedroom, "Bedroom") %></p>
+                </div>
+            </div>
+            <hr>
+            <div class="about-listing mb-4">
+                <h2>About This Listing</h2>
+            </div>
+            <div class="about-listing-text mb-4">
+                <%= @room.summary %>
+            </div>
+            <hr>
+            <h2>Amenities</h2>
+            <div class="row">
+                <div class="col-4">
+                    <ul>
+                        <li class= "<%= 'text-line-through' if !@room.is_tv %>">TV</li>
+                        <li class= "<%= 'text-line-through' if !@room.is_kitchen %>">Kitchen</li>
+                        <li class= "<%= 'text-line-through' if !@room.is_internet %>">Internet</li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li class= "<%= 'text-line-through' if !@room.is_heating %>">Heating</li>
+                        <li class= "<%= 'text-line-through' if !@room.is_air %>">Air Conditioning</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <% if @photos.length > 0 %>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <% @photos.each do |photo| %>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="<%= photo.id %>"></li>
+                            <% end %>
+                        </ol>
+                        <div class="carousel-inner">
+                            <% @photos.each do |photo| %>
+                                <div class="carousel-item <%= 'active' if photo.id == @photos[0].id %>">
+                                    <%= image_tag photo.image.url(), class: "d-block w-100" %>
+                                </div>
+                            <% end %>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-3 mt-2">
+            <div class="card">
+                <h5 class="card-header">$<%= @room.price %> Per Night</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5 class="card-title">Check in</h5>
+                        </div>
+                        <div class="col-6">
+                            <h5 class="card-title">Check out</h5>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

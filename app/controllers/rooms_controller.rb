@@ -22,7 +22,8 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
+    @user = @room.user
+    @photos=@room.photos
   end
 
   def listing
