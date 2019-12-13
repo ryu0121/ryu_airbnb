@@ -13,6 +13,7 @@
                 </div>
             </div>
             <hr>
+
             <div class="row">
                 <div class="col-3">
                     <i class="fas fa-home fa-ame"></i>
@@ -32,6 +33,7 @@
                 </div>
             </div>
             <hr>
+
             <div class="about-listing mb-4">
                 <h2>About This Listing</h2>
             </div>
@@ -39,6 +41,7 @@
                 <%= @room.summary %>
             </div>
             <hr>
+
             <h2>Amenities</h2>
             <div class="row">
                 <div class="col-4">
@@ -56,6 +59,7 @@
                 </div>
             </div>
             <hr>
+            
             <div class="row">
                 <% if @photos.length > 0 %>
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -81,6 +85,37 @@
                         </a>
                     </div>
                 <% end %>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div id="map" style="width: 700px; height: 400px;">
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDspYikCQfAWG3gFx_bKqgkYj_rl-a646s"></script>
+
+                    <script>
+                        function initialize() {
+                            var location = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                                center: location,
+                                zoom: 14
+                            });
+
+                            var marker = new google.maps.Marker({
+                                position: location,
+                                map: map
+                            });
+
+                            var infoWindow = new google.maps.InfoWindow({
+                                content: '<div id="content"><%= image_tag @room.photos.first.image.url(:medium) %></div>'
+                            });
+
+                            infoWindow.open(map, marker)
+
+                        }
+
+                        google.maps.event.addDomListener(window, 'load', initialize);
+                    </script>
+                </div>
             </div>
         </div>
         <div class="col-3 mt-2">
