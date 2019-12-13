@@ -33,33 +33,28 @@
             </div>
             <hr>
             <div class="about-listing mb-4">
-                <h6>About This Listing</h6>
+                <h2>About This Listing</h2>
             </div>
             <div class="about-listing-text mb-4">
                 <%= @room.summary %>
             </div>
             <hr>
-            <div class="col-3">
+            <h2>Amenities</h2>
+            <div class="row">
                 <div class="col-4">
-                    <h6>Amenities</h6>
+                    <ul>
+                        <li class= "<%= 'text-line-through' if !@room.is_tv %>">TV</li>
+                        <li class= "<%= 'text-line-through' if !@room.is_kitchen %>">Kitchen</li>
+                        <li class= "<%= 'text-line-through' if !@room.is_internet %>">Internet</li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li class= "<%= 'text-line-through' if !@room.is_heating %>">Heating</li>
+                        <li class= "<%= 'text-line-through' if !@room.is_air %>">Air Conditioning</li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-9">
-                <div class="row">
-                    <div class="col-4">
-                        <ul>
-                            <li class= "<%= 'text-line-through' if !@room.is_tv %>">TV</li>
-                            <li class= "<%= 'text-line-through' if !@room.is_kitchen %>">Kitchen</li>
-                            <li class= "<%= 'text-line-through' if !@room.is_internet %>">Internet</li>
-                        </ul>
-                    </div>
-                    <div class="col-4">
-                        <ul>
-                            <li class= "<%= 'text-line-through' if !@room.is_heating %>">Heating</li>
-                            <li class= "<%= 'text-line-through' if !@room.is_air %>">Air Conditioning</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
             <hr>
             <div class="row">
