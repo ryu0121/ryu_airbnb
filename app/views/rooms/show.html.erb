@@ -90,7 +90,7 @@
 
             <div class="row">
                 <div id="map" style="width: 700px; height: 400px;">
-                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDspYikCQfAWG3gFx_bKqgkYj_rl-a646s"></script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps_api_key %>"></script>
 
                     <script>
                         function initialize() {
