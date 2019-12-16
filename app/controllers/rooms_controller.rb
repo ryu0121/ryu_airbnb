@@ -23,7 +23,8 @@ class RoomsController < ApplicationController
 
   def show
     @user = @room.user
-    @photos=@room.photos
+    @photos = @room.photos
+    @reservation = Reservation.new
   end
 
   def listing

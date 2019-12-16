@@ -1,7 +1,7 @@
 <div class="container">
     <%= image_tag @room.photos.first.image.url, class:"mt-2 mb-2", width:"100%" %>
     <div class="row">
-        <div class="col-9 mt-2">
+        <div class="col-8 mt-2">
             <div class="row">
                 <div class="col-8 mb-4">
                     <h1><%= @room.listing_name %></h1>
@@ -138,21 +138,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-3 mt-2">
-            <div class="card">
-                <h5 class="card-header">$<%= @room.price %> Per Night</h5>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <h5 class="card-title">Check in</h5>
-                        </div>
-                        <div class="col-6">
-                            <h5 class="card-title">Check out</h5>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+        <div class="col-4 mt-2">
+            <%= render "reservations/form" %>
         </div>
     </div>
 </div>
