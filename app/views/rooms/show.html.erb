@@ -117,6 +117,26 @@
                     </script>
                 </div>
             </div>
+
+            <%# Nearby Places %>
+            <div class="mt-4 mb-4">
+                <h3>Near by</h3>
+                <div class="row">
+                    <% for room in @room.nearbys(10) %>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-header preview">
+                                    <%= image_tag room.photos.first.image.url(:medium) %>
+                                </div>
+                                <div class="card-body">
+                                    <%= link_to room.listing_name, room %>
+                                    (<%= room.distance.round(2) %> miles away)
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
         </div>
         <div class="col-3 mt-2">
             <div class="card">
