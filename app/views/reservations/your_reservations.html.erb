@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="col-md-5">
                                     <%= link_to reservation.room.listing_name, room_path(reservation.room.user), class: "trip-name" %>
-                                    <%= link_to reservation.user.fullname, user_path(reservation.room.user), class: "trip-name" %>
+                                    <%= link_to reservation.user.fullname, user_path(reservation.user), class: "trip-name" %>
                                 </div>
                                 <div class="col-md-3">
                                     <%= link_to 'Review Guest', "#", class: "btn btn-primary update-room-btn" %>
