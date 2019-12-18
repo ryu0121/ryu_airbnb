@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-3">
+        <div class="card">
+            <div class="card-body">
+                <%= render "rooms/your_menu" %>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-9">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                Your Trips
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <% @trips.each do |trip| %>
+                        <div class="row room-row mb-3"> 
+                            <div class="col-md-2 trip-date">
+                                <%= trip.start_date.strftime('%v') %>
+                            </div>
+                            <div class="col-md-2">
+                                <% if trip.room.photos.blank? %>
+                                    <%= image_tag "no-image.png", alt: "Room image", class: "room-image mt-1" %>
+                                <% else %>
+                                    <%= image_tag trip.room.photos.first.image.url(:thumb), class:"mt-1" %>
+                                <% end %>
+                            </div>
+                            <div class="col-md-5">
+                                <%= link_to trip.room.listing_name, room_path(trip.room.user), class: "trip-name" %>
+                                <%= link_to trip.room.user.fullname, user_path(trip.room.user), class: "trip-name" %>
+                            </div>
+                            <div class="col-md-3">
+                                <%= link_to 'Review Host', "#", class: "btn btn-primary update-room-btn" %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
