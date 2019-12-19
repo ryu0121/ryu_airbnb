@@ -29,7 +29,8 @@
                             </div>
                             <div class="col-md-5">
                                 <%= link_to trip.room.listing_name, room_path(trip.room.user), class: "trip-name" %>
-                                <%= link_to trip.room.user.fullname, user_path(trip.room.user), class: "trip-name" %>
+                                <%= image_tag avatar_url(trip.room.user), class: "rounded-circle avatar-small" %>
+                                <%= link_to trip.room.user.fullname, user_path(trip.room.user), class: "trip-fullname" %>
                             </div>
                             <div class="col-md-3">
                                 <%= link_to 'Review Host', "#", class: "btn btn-primary update-room-btn" %>
