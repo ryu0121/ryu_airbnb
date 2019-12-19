@@ -1,18 +1,21 @@
-# ユーザー
-User.create!(name:  "user1",
-    email: "manchester.ryu.121@gmail.com",
-    password:              "password",
-    password_confirmation: "password",
-    admin: true
-    )
-
-99.times do |n|
-name  = Faker::Name.name
-email = "example-#{n+1}@railstutorial.org"
-password = "password"
-User.create!(name:  name,
-      email: email,
-      password:              password,
-      password_confirmation: password,
-      )
-end
+user = User.create!(
+    fullname: "Johnedel Mapa",
+    email: "johnedel.mapa@sun-asterisk.com",
+    password: "password",
+    password_confirmation: "password"
+  )
+  
+  user.skip_confirmation!
+  user.save
+  
+  
+  50.times do |n|
+    users = User.new(
+    fullname: Faker::Name.name,
+    email: Faker::Internet.unique.email,
+    password: "password",
+    password_confirmation: "password"
+  )
+  users.skip_confirmation!
+  users.save!
+  end
