@@ -34,7 +34,7 @@
                                     <%= link_to reservation.user.fullname, user_path(reservation.user), class: "trip-fullname" %>
                                 </div>
                                 <div class="col-md-3">
-                                    <%= link_to 'Review Guest', "#", class: "btn btn-primary update-room-btn" %>
+                                    <%= render partial: "reviews/host_form", locals: {reservation: reservation} %>
                                 </div>
                             </div>
                         <% end %>

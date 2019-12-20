@@ -8,9 +8,9 @@
                 </div>
                 <div class="card-body">
                     <% if @user.image %>
-                        <p class="card-text">Facebook <i class="fas fa-check-circle"></i></p>
+                        <p class="card-text">Facebook: <i class="fas fa-check-circle"></i></p>
                     <% else %>
-                        <p class="card-text">Email <i class="fas fa-check-circle"></i></p>
+                        <p class="card-text">Email: <i class="fas fa-check-circle"></i></p>
                     <% end %>
                     <% if @user.phone_number %>
                         <p class="card-text"><%= @user.phone_number %> <i class="fas fa-check-circle"></i></p>
@@ -18,9 +18,23 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <h1>Title</h1>
-            <p>description.This is a description.eSports is essentially competitive video gaming. Individuals and teams take part in competitions where they play video games. Tens of thousands of people turn up to watch these events. The players are professional and get paid huge salaries – the best ones are millionaires. Find out more about it with Neil and Sam in 6 Minutes English and learn new vocabulary along the way. </p>
+        <div class="col-9">
+            <h3><%= @user.fullname %></h3>
+            <h4>Listings (<%= @rooms.length %>)</h4><br>
+            <div class="row">
+                <%= render 'rooms/room_list' %>
+            </div><br><br>
+
+            <h4>Reviews From Guests ( <%= @guest_reviews.count %> )</h4>
+            <div>
+                <%= render "reviews/guest_list" %>
+            </div>
+
+
+            <h4>Reviews From Hosts ( <%= @host_reviews.count %> )</h4>
+            <div>
+                <%= render "reviews/host_list" %>
+            </div>
         </div>
     </div>
 </div>
