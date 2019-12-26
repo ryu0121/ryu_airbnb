@@ -28,7 +28,7 @@ class PagesController < ApplicationController
       @start_date = Date.parse(params[:start_date])
       @end_date = Date.parse(params[:end_date])
       @rooms.each do |room|
-        taken_room = room.reservation.where("? <= start_date AND start_date <=? OR (? <= end_date AND end_date <= ?)",
+        taken_room = room.reservations.where("? <= start_date AND start_date <=? OR (? <= end_date AND end_date <= ?)",
         @start_date, @end_date,
         @start_date, @end_date).limit(1)
 
