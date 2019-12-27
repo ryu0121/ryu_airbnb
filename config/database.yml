@@ -11,3 +11,8 @@ development:
 test:
   <<: *default
   database: ryu_airbnb_test
+production:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
