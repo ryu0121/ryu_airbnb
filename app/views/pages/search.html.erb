@@ -153,7 +153,7 @@
                   infowindow = new google.maps.InfoWindow({
                     content: "<div>" + <%= room.price %> + "</div>"
                   });
-                  infowindow.open(map.marker);
+                  infowindow.open(map, marker);
 
                 <% end %>
               }
